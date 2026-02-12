@@ -303,7 +303,7 @@ function setVolume(value) {
 }
 
 function stopSong() {
-  db.ref("/toAltera").set(0);
+  db.ref("/toAltera").set(201);
   addLog("MP3", "stop");
 }
 
