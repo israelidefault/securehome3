@@ -1,0 +1,371 @@
+/* ==========================================================
+   Smart Secured Home — Clean Modern Theme (2026)
+   Global stylesheet used by all pages
+   ========================================================== */
+
+/* ---------- Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+
+/* ---------- Theme tokens ---------- */
+:root{
+  --bg0:#0b1220;
+  --bg1:#0f1a33;
+
+  /* Card color (recommended) */
+  --card-bg:#e8eef7;
+
+  --border:rgba(15, 23, 42, .12);
+  --text:#0f172a;
+  --muted:#475569;
+
+  --primary:#2563eb;
+  --primary-2:#06b6d4;
+  --danger:#ef4444;
+
+  --radius:18px;
+  --shadow:0 18px 40px rgba(2,6,23,.18);
+  --shadow-soft:0 10px 24px rgba(2,6,23,.10);
+}
+.hero h1,
+.hero p {
+  color: #ffffff;
+}
+.about-image-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Base ---------- */
+html, body{ height:100%; }
+body{
+  font-family:"Heebo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(37, 99, 235,.55), transparent 55%),
+    radial-gradient(900px 500px at 90% 15%, rgba(6, 182, 212,.40), transparent 55%),
+    radial-gradient(900px 600px at 40% 100%, rgba(249, 115, 22,.22), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color:var(--text);
+  min-height:100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a{ color:var(--primary); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+main.container{
+  position:relative;
+  z-index:1;
+}
+
+/* ---------- Navbar (loaded by app.js) ---------- */
+.navbar{
+  backdrop-filter:saturate(140%) blur(10px);
+  -webkit-backdrop-filter:saturate(140%) blur(10px);
+  background:rgba(255,255,255,.78) !important;
+  border-bottom:1px solid rgba(255,255,255,.55);
+  box-shadow: 0 8px 22px rgba(2,6,23,.10);
+}
+.navbar .navbar-brand{
+  font-weight:700;
+  letter-spacing:.2px;
+}
+.navbar .nav-link{
+  color:#0f172a !important;
+  font-weight:500;
+  opacity:.88;
+  border-radius:999px;
+  padding:.45rem .85rem !important;
+}
+.navbar .nav-link:hover{
+  opacity:1;
+  background:rgba(37, 99, 235,.08);
+}
+.navbar .nav-link.active{
+  background:rgba(37, 99, 235,.12);
+  opacity:1;
+}
+
+/* ---------- Page hero ---------- */
+.page-hero{
+  background: var(--card-bg);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+.page-hero h1{
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  font-weight: 800;
+  margin-bottom: .35rem;
+}
+.page-hero p{
+  margin:0;
+  color: var(--muted);
+}
+
+/* ---------- Cards (Bootstrap) ---------- */
+.card{
+  --bs-card-bg: var(--card-bg);
+  background-color: var(--card-bg);
+  background-image: none;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+.card.border-0{ border-color: rgba(255,255,255,.25) !important; }
+
+/* if you use card-soft anywhere */
+.card-soft{
+  background-color: var(--card-bg);
+  background-image:none;
+  border:1px solid rgba(255,255,255,.35);
+}
+
+/* prevent inner parts from painting white */
+.card-body,
+.card-header,
+.card-footer{
+  background: transparent !important;
+}
+
+/* ---------- White-frame (your inner wrapper) ---------- */
+.white-frame{
+  background-color: var(--card-bg);
+  background-image:none;
+  border-radius: var(--radius);
+  padding: 18px;
+  height: 100%;
+}
+
+/* Center all card titles */
+.card-title,
+.white-frame h5{
+  text-align:center;
+  width:100%;
+  margin-bottom: 1rem;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.card .d-flex > h5{
+  margin: 0 auto;
+  text-align:center;
+}
+
+/* ---------- RGB card ---------- */
+.rgb-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.white-frame.rgb-card{
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:18px;
+  gap:12px;
+}
+
+.rgb-title{
+  margin:0;
+  width:100%;
+  text-align:center;
+}
+
+.rgb-fill{
+  flex:1;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.rgb-light{
+  width: min(100%, 260px);
+  height:auto;
+  aspect-ratio: 1 / 1;
+  border-radius:50%;
+  transition: .25s ease;
+}
+
+.rgb-light.red{
+  background: radial-gradient(circle at 30% 30%, #ff7b7b, #b30000);
+  box-shadow: 0 0 45px rgba(255,0,0,0.55);
+}
+.rgb-light.green{
+  background: radial-gradient(circle at 30% 30%, #7bff9f, #008f2a);
+  box-shadow: 0 0 45px rgba(0,255,120,0.45);
+}
+
+.rgb-actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  width:100%;
+}
+
+.rgb-text{
+  margin:0;
+  min-height:20px;
+  text-align:center;
+  opacity:.85;
+}
+
+/* ---------- MP3 card ---------- */
+.mp3-card{
+  background-color: var(--card-bg);
+  background-image:none;
+  padding:25px;
+  border-radius:16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align:center;
+  max-width:400px;
+  margin:auto;
+}
+
+.mp3-title{
+  margin-bottom:20px;
+  font-weight:600;
+  color:#333;
+}
+
+.song-buttons,
+.volume-buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.song-btn,
+.volume-btn{
+  flex:1;
+  padding:10px 0;
+  border:none;
+  border-radius:10px;
+  background:#0d6efd;
+  color:#fff;
+  font-weight:500;
+  transition:.2s;
+}
+.song-btn:hover,
+.volume-btn:hover{
+  background:#0b5ed7;
+  transform: translateY(-2px);
+}
+
+.section-label{
+  display:block;
+  margin-bottom:10px;
+  font-size:14px;
+  color:#666;
+}
+
+.stop-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#dc3545;
+  color:#fff;
+  font-weight:600;
+  transition:.2s;
+}
+.stop-btn:hover{
+  background:#bb2d3b;
+}
+
+/* ---------- Camera wrapper (if you use camera-wrap class anywhere) ---------- */
+.camera-wrap{
+  background-color: var(--card-bg);
+  background-image:none;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.camera-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.75rem;
+  padding: 1rem;
+  border-bottom:1px solid rgba(15,23,42,.10);
+}
+.camera-title{
+  margin:0;
+  font-weight:800;
+  font-size:1.1rem;
+}
+.camera-sub{
+  margin:0;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.camera-frame{
+  aspect-ratio: 16 / 9;
+  background: rgba(2,6,23,.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.camera-frame img,
+.camera-frame iframe,
+.camera-frame video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.camera-placeholder{
+  color: rgba(255,255,255,.78);
+  padding: 1rem;
+  text-align:center;
+}
+
+/* ---------- About page components (optional) ---------- */
+.about-hero{
+  background-color: var(--card-bg);
+  background-image:none;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+.about-hero h1{
+  font-size: clamp(1.55rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+}
+.about-hero .lead{ color: var(--muted); }
+
+/* ---------- Logs (if you still use pre#log somewhere) ---------- */
+pre#log{
+  background: rgba(2,6,23,.86);
+  color: rgba(255,255,255,.92);
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 18px 40px rgba(2,6,23,.20);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ---------- Small polish ---------- */
+.text-muted{ color: var(--muted) !important; }
+.shadow-sm{ box-shadow: var(--shadow-soft) !important; }
+.rounded-4{ border-radius: calc(var(--radius) + 8px) !important; }
+
